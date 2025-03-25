@@ -4,10 +4,10 @@ import bts.ciel.project_mp3_thestrongest.pk_mp3.GestionMp3;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -21,12 +21,19 @@ public class HelloController implements Initializable {
     public Button boutonLab;
     public Button stopLab;
     public Button playLab;
-    public Media media ;
+    public Media media;
     public MediaPlayer mediaPlayer;
     public String sFichier;
     public GestionMp3 gestionMp3;
     public Path path;
     public Button tagLab;
+    public TextField titreLab;
+    public TextField trackLab;
+    public TextField commentaireLab;
+    public TextField artisteLab;
+    public TextField genreLab;
+    public TextField anneeLab;
+    public TextField albumLab;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,6 +52,14 @@ public class HelloController implements Initializable {
         } catch (IOException e) {
             System.out.println("erreur truc");
         }
+        titreLab.setText(gestionMp3.getTitre());
+        artisteLab.setText(gestionMp3.getArtiste());
+        albumLab.setText(gestionMp3.getAlbum());
+        anneeLab.setText(gestionMp3.getAnnee());
+        commentaireLab.setText(gestionMp3.getCommentaire());
+        trackLab.setText(gestionMp3.getPiste);
+        genreLab.setText((gestionMp3.getGenre()));
+
     }
 
     private void play() {

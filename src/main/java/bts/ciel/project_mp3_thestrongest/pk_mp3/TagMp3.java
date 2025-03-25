@@ -2,20 +2,33 @@ package bts.ciel.project_mp3_thestrongest.pk_mp3;
 
 public class TagMp3 {
     private String tag;
-    private String chanson;
+    private String titre;
     private String nom;
+    private String artiste;
     private String album;
     private String annee;
     private String commentaire;
     private byte piste;
-    private byte genre;
+    private String genre;
 
-    public String getChanson() {
-        return chanson;
+    public String getArtiste() {
+        return artiste;
     }
 
-    public void setChanson(String chanson) {
-        this.chanson = chanson;
+    public void setArtiste(String artiste) {
+        this.artiste = artiste;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
     public String getTag() {
@@ -66,12 +79,13 @@ public class TagMp3 {
         this.piste = piste;
     }
 
-    public byte getGenre() {
+    public String getGenre() {
         return genre;
     }
 
     public void setGenre(byte genre) {
-        this.genre = genre;
+        this.genre = String.valueOf(genre);
     }
+
 
 }

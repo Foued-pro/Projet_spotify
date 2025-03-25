@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class GestionMp3 {
+    public String getPiste;
     private Path fileSource;
     private byte[] tab;
     private TagMp3 tag;
@@ -23,6 +24,42 @@ public class GestionMp3 {
         dis.skipBytes((int) (Files.size(fileSource) - 128));
         dis.read(tab);
         dis.close();
-        System.out.println(new String(tab).replace("\0", "").substring(0, 126));
+        if (new String(tab, 0, 3).equals("TAG")) {
+            this.tag.setTitre(new String(tab, 3, 30));
+            this.tag.setArtiste(new String(tab, 33, 30));
+            this.tag.setAlbum(new String(tab, 63, 30));
+            this.tag.setAnnee(new String(tab, 93, 4));
+            this.tag.setCommentaire(new String(tab, 97, 28));
+
+        }
+    }
+
+    public String getTitre() {
+        return this.tag.getTitre();
+    }
+
+    public String getAlbum() {
+        return this.tag.getAlbum();
+    }
+
+    public String getArtiste() {
+        return this.tag.getArtiste();
+    }
+
+    public String getAnnee() {
+        return this.tag.getAnnee();
+    }
+
+    public String getCommentaire() {
+        return this.tag.getCommentaire();
+    }
+    public byte getPiste() {
+        return this.tag.getPiste();
+    }
+
+    public String getGenre() {
+        return this.tag.getGenre();
     }
 }
+
+
