@@ -1,8 +1,11 @@
 package bts.ciel.project_mp3_thestrongest.pk_mp3;
 
+import javafx.scene.control.Alert;
+
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -19,17 +22,21 @@ public class GestionMp3 {
     }
 
     public void lireTags() throws IOException {
-        InputStream is = Files.newInputStream(fileSource);
-        DataInputStream dis = new DataInputStream(is);
-        dis.skipBytes((int) (Files.size(fileSource) - 128));
-        dis.read(tab);
-        dis.close();
+        RandomAccessFile ran = new RandomAccessFile(fileSource.toFile(), "rw");
+        ran.seek(Files.size(fileSource) - 128);
+        ran.read(tab);
+        ran.close();
         if (new String(tab, 0, 3).equals("TAG")) {
             this.tag.setTitre(new String(tab, 3, 30));
             this.tag.setArtiste(new String(tab, 33, 30));
             this.tag.setAlbum(new String(tab, 63, 30));
             this.tag.setAnnee(new String(tab, 93, 4));
             this.tag.setCommentaire(new String(tab, 97, 28));
+            this.tag.setTag(String.valueOf(tab[126]));
+            this.tag.setGenre(String.valueOf(tab[126]));
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Erreur de format");
+            alert.showAndWait();
 
         }
     }
@@ -53,6 +60,7 @@ public class GestionMp3 {
     public String getCommentaire() {
         return this.tag.getCommentaire();
     }
+
     public byte getPiste() {
         return this.tag.getPiste();
     }

@@ -1,6 +1,8 @@
 package bts.ciel.project_mp3_thestrongest;
 
 import bts.ciel.project_mp3_thestrongest.pk_mp3.GestionMp3;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,6 +36,9 @@ public class HelloController implements Initializable {
     public TextField genreLab;
     public TextField anneeLab;
     public TextField albumLab;
+    public Button modifierLab;
+    private SimpleBooleanProperty isEditable;
+    private SimpleStringProperty Background;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,8 +62,8 @@ public class HelloController implements Initializable {
         albumLab.setText(gestionMp3.getAlbum());
         anneeLab.setText(gestionMp3.getAnnee());
         commentaireLab.setText(gestionMp3.getCommentaire());
-        trackLab.setText(gestionMp3.getPiste);
-        genreLab.setText((gestionMp3.getGenre()));
+        trackLab.setText(String.valueOf(gestionMp3.getPiste()));
+        genreLab.setText(gestionMp3.getGenre());
 
     }
 
