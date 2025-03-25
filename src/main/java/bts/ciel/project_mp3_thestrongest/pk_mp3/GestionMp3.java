@@ -33,13 +33,15 @@ public class GestionMp3 {
             this.tag.setAnnee(new String(tab, 93, 4));
             this.tag.setCommentaire(new String(tab, 97, 28));
             this.tag.setTag(String.valueOf(tab[126]));
-            this.tag.setGenre(String.valueOf(tab[126]));
+            this.tag.setGenre(String.valueOf(tab[127]));
         }else {
             Alert alert = new Alert(Alert.AlertType.ERROR,"Erreur de format");
             alert.showAndWait();
 
         }
     }
+
+
 
     public String getTitre() {
         return this.tag.getTitre();
@@ -68,6 +70,8 @@ public class GestionMp3 {
     public String getGenre() {
         return this.tag.getGenre();
     }
+
+
 }
 
 

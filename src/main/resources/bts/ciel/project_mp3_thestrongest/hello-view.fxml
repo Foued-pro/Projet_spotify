@@ -1,19 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="498.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bts.ciel.project_mp3_thestrongest.HelloController">
+<AnchorPane prefHeight="498.0" prefWidth="610.0" style="-fx-background-color: #96b6c2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bts.ciel.project_mp3_thestrongest.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <Button fx:id="boutonLab" layoutX="418.0" layoutY="75.0" prefHeight="48.0" prefWidth="100.0" text="Fichier" />
-   <Label fx:id="pathLab" layoutX="53.0" layoutY="99.0" prefHeight="30.0" prefWidth="313.0" style="-fx-background-color: red;" />
-   <Label fx:id="fichierLab" layoutX="53.0" layoutY="153.0" prefHeight="30.0" prefWidth="257.0" style="-fx-background-color: red;" />
-   <Button fx:id="stopLab" layoutX="235.0" layoutY="256.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" text="Stop" />
-   <Button fx:id="playLab" layoutX="53.0" layoutY="256.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" text="Play" />
-   <Button fx:id="tagLab" layoutX="418.0" layoutY="148.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Lire Tag" />
+    <Button fx:id="boutonLab" cacheShape="false" cancelButton="true" centerShape="false" focusTraversable="false" layoutX="35.0" layoutY="28.0" prefHeight="48.0" prefWidth="100.0" scaleShape="false" style="-fx-background-radius: 15;" text="Fichier" />
+   <Label fx:id="pathLab" layoutX="34.0" layoutY="87.0" prefHeight="37.0" prefWidth="440.0" style="-fx-background-color: red; -fx-background-radius: 15; -fx-padding: 10;" />
+   <Label fx:id="fichierLab" layoutX="34.0" layoutY="143.0" prefHeight="37.0" prefWidth="183.0" style="-fx-background-color: red; -fx-background-radius: 15; -fx-padding: 10;" />
+   <Button fx:id="stopLab" layoutX="319.0" layoutY="226.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" style="-fx-border-radius: 50;" text="Stop" />
+   <Button fx:id="playLab" layoutX="126.0" layoutY="226.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" style="-fx-border-radius: 20;" text="Play" />
+   <Button fx:id="tagLab" layoutX="160.0" layoutY="28.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="100.0" text="Lire Tag" />
    <TextField fx:id="titreLab" layoutX="61.0" layoutY="346.0" />
    <TextField fx:id="trackLab" layoutX="61.0" layoutY="518.0" />
    <TextField fx:id="commentaireLab" layoutX="269.0" layoutY="346.0" />
@@ -28,5 +30,5 @@
    <Label layoutX="270.0" layoutY="318.0" text="commentaire" />
    <Label layoutX="268.0" layoutY="371.0" prefHeight="17.0" prefWidth="35.0" text="annee" />
    <Label layoutX="270.0" layoutY="431.0" text="genre" />
-   <Button fx:id="modifierLab" layoutX="418.0" layoutY="207.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="modifier" />
+   <Button fx:id="modifierLab" layoutX="303.0" layoutY="28.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="100.0" text="modifier" />
 </AnchorPane>

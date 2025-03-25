@@ -1,0 +1,11 @@
+.button {
+    -fx-background-color: black; /* Couleur de fond verte */
+    -fx-text-fill: white;           /* Texte en blanc */
+    -fx-font-size: 14px;            /* Taille de la police */
+    -fx-background-radius: 25px;    /* Coins arrondis */
+    -fx-border-radius: 25px;       /* Coins arrondis pour la bordure */
+    -fx-border: none;              /* Enlever la bordure */
+    -fx-padding: 10px 20px;         /* Espacement interne */
+    -fx-effect: null;               /* Supprimer les ombres par défaut */
+    -fx-transition: all 0.3s ease;  /* Animation douce lors du survol */
+}

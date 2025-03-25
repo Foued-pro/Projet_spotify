@@ -38,14 +38,37 @@ public class HelloController implements Initializable {
     public TextField albumLab;
     public Button modifierLab;
     private SimpleBooleanProperty isEditable;
-    private SimpleStringProperty Background;
+    private SimpleStringProperty background;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        isEditable = new SimpleBooleanProperty(false);
+        background = new SimpleStringProperty("-fx-background-color: white;");
+        //TF editable la
+        titreLab.editableProperty().bind(isEditable);
+        titreLab.styleProperty().bind(background);
+        artisteLab.editableProperty().bind(isEditable);
+        artisteLab.styleProperty().bind(background);
+        anneeLab.editableProperty().bind(isEditable);
+        anneeLab.styleProperty().bind(background);
+        albumLab.editableProperty().bind(isEditable);
+        albumLab.styleProperty().bind(background);
+        genreLab.editableProperty().bind(isEditable);
+        genreLab.styleProperty().bind(background);
+        commentaireLab.editableProperty().bind(isEditable);
+        commentaireLab.styleProperty().bind(background);
+        trackLab.editableProperty().bind(isEditable);
+        trackLab.styleProperty().bind(background);
+        genreLab.editableProperty().bind(isEditable);
+        genreLab.styleProperty().bind(background);
+
+
         boutonLab.setOnAction(event -> ouvrirfichier());
         playLab.setOnAction(event -> play());
         stopLab.setOnAction(event -> stop());
         tagLab.setOnAction(event -> liretag());
+        modifierLab.setOnAction(event -> activerEdition());
+
 
 
     }
@@ -64,7 +87,14 @@ public class HelloController implements Initializable {
         commentaireLab.setText(gestionMp3.getCommentaire());
         trackLab.setText(String.valueOf(gestionMp3.getPiste()));
         genreLab.setText(gestionMp3.getGenre());
+        isEditable.set(false);
+        background.set("-fx-background-color: lightgray;");
 
+    }
+
+    private void activerEdition() {
+        isEditable.set(true);
+        background.set("-fx-background-color: blue;");
     }
 
     private void play() {
@@ -94,4 +124,5 @@ public class HelloController implements Initializable {
             playLab.setDisable(false);
         }
     }
+
 }
