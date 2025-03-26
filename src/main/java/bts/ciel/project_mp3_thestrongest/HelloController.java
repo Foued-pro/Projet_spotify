@@ -65,11 +65,18 @@ public class HelloController implements Initializable {
 
 
         boutonLab.setOnAction(event -> ouvrirfichier());
-        saveLab.setOnAction(event -> gestionMp3.ecrireTag());
+        saveLab.setOnAction(event -> {
+            try {
+                gestionMp3.ecrireTag();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         playLab.setOnAction(event -> play());
         stopLab.setOnAction(event -> stop());
         tagLab.setOnAction(event -> liretag());
         modifierLab.setOnAction(event -> activerEdition());
+
 
 
 
@@ -96,7 +103,7 @@ public class HelloController implements Initializable {
 
     private void activerEdition() {
         isEditable.set(true);
-        background.set("-fx-background-color: blue;");
+        background.set("-fx-background-color: lightblue;");
     }
 
     private void play() {

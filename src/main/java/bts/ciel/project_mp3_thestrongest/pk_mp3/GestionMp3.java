@@ -30,8 +30,8 @@ public class GestionMp3 {
             this.tag.setAlbum(new String(tab, 63, 30));
             this.tag.setAnnee(new String(tab, 93, 4));
             this.tag.setCommentaire(new String(tab, 97, 28));
-            this.tag.setTag(String.valueOf(tab[126]));
-            this.tag.setGenre(String.valueOf(tab[127]));
+            this.tag.setPiste(tab[126]);
+            this.tag.setGenre(tab[127]);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur de format");
             alert.showAndWait();
@@ -68,7 +68,11 @@ public class GestionMp3 {
         return this.tag.getGenre();
     }
 
-    public void ecrireTag() {
+    public void ecrireTag() throws IOException {
+        RandomAccessFile ran = new RandomAccessFile(fileSource.toFile(), "rw");
+        ran.seek(Files.size(fileSource) - 128);
+        ran.read(tab);
+        ran.close();
         for (int i = 0; i < tab.length - 3; i++) {
             tab[3 + i] = (byte) 0 * 00;
         }
@@ -92,11 +96,14 @@ public class GestionMp3 {
                 tab[33 + i] = (byte) tag.getArtiste().charAt(i);
             }
         }
-        for (int i = 0; i <tag.getArtiste().length(); i++) {
-            if (i<30){
+        for (int i = 0; i < tag.getArtiste().length(); i++) {
+            if (i < 30) {
                 tab[33 + i] = (byte) tag.getArtiste().charAt(i);
             }
         }
+        ran.write(tab);
+        ran.close();
+        lireTags();
 
     }
 
