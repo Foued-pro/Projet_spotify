@@ -37,6 +37,7 @@ public class HelloController implements Initializable {
     public TextField anneeLab;
     public TextField albumLab;
     public Button modifierLab;
+    public Button saveLab;
     private SimpleBooleanProperty isEditable;
     private SimpleStringProperty background;
 
@@ -64,6 +65,7 @@ public class HelloController implements Initializable {
 
 
         boutonLab.setOnAction(event -> ouvrirfichier());
+        saveLab.setOnAction(event -> gestionMp3.ecrireTag());
         playLab.setOnAction(event -> play());
         stopLab.setOnAction(event -> stop());
         tagLab.setOnAction(event -> liretag());
@@ -124,5 +126,6 @@ public class HelloController implements Initializable {
             playLab.setDisable(false);
         }
     }
+
 
 }

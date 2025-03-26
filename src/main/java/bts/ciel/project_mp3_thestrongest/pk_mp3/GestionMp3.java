@@ -2,9 +2,7 @@ package bts.ciel.project_mp3_thestrongest.pk_mp3;
 
 import javafx.scene.control.Alert;
 
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,13 +32,12 @@ public class GestionMp3 {
             this.tag.setCommentaire(new String(tab, 97, 28));
             this.tag.setTag(String.valueOf(tab[126]));
             this.tag.setGenre(String.valueOf(tab[127]));
-        }else {
-            Alert alert = new Alert(Alert.AlertType.ERROR,"Erreur de format");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur de format");
             alert.showAndWait();
 
         }
     }
-
 
 
     public String getTitre() {
@@ -69,6 +66,38 @@ public class GestionMp3 {
 
     public String getGenre() {
         return this.tag.getGenre();
+    }
+
+    public void ecrireTag() {
+        for (int i = 0; i < tab.length - 3; i++) {
+            tab[3 + i] = (byte) 0 * 00;
+        }
+        for (int i = 0; i < tag.getTitre().length(); i++) {
+            if (i < 30) {
+                tab[3 + i] = (byte) tag.getTitre().charAt(i);
+            }
+        }
+        for (int i = 0; i < tag.getArtiste().length(); i++) {
+            if (i < 30) {
+                tab[33 + i] = (byte) tag.getArtiste().charAt(i);
+            }
+        }
+        for (int i = 0; i < tag.getAlbum().length(); i++) {
+            if (i < 30) {
+                tab[63 + i] = (byte) tag.getAnnee().charAt(i);
+            }
+        }
+        for (int i = 0; i < tag.getArtiste().length(); i++) {
+            if (i < 30) {
+                tab[33 + i] = (byte) tag.getArtiste().charAt(i);
+            }
+        }
+        for (int i = 0; i <tag.getArtiste().length(); i++) {
+            if (i<30){
+                tab[33 + i] = (byte) tag.getArtiste().charAt(i);
+            }
+        }
+
     }
 
 

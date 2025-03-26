@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="498.0" prefWidth="610.0" style="-fx-background-color: #96b6c2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bts.ciel.project_mp3_thestrongest.HelloController">
+<AnchorPane prefHeight="498.0" prefWidth="610.0" style="-fx-background-color: #96b6c2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bts.ciel.project_mp3_thestrongest.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -30,5 +30,6 @@
    <Label layoutX="270.0" layoutY="318.0" text="commentaire" />
    <Label layoutX="268.0" layoutY="371.0" prefHeight="17.0" prefWidth="35.0" text="annee" />
    <Label layoutX="270.0" layoutY="431.0" text="genre" />
-   <Button fx:id="modifierLab" layoutX="303.0" layoutY="28.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="100.0" text="modifier" />
+   <Button fx:id="modifierLab" layoutX="303.0" layoutY="28.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="100.0" text="Modifier" />
+   <Button fx:id="saveLab" layoutX="435.0" layoutY="28.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="100.0" text="Save" />
 </AnchorPane>
